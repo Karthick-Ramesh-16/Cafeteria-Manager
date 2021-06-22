@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "menu_categories", to: "menu_categories#index"
+  get "/", to: "home#index"
 
   resources :users
 
