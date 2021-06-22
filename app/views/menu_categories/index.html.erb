@@ -1,10 +1,13 @@
-<h1>Menu Category</h1>
+<h1 class="MenuCategory">Menu</h1>
 
 <% MenuCategory.all.map do |mc| %>
-    <h2><%= mc.name %></h2>
+    <h2 class="MenuCategory-title"><%= mc.name %></h2>
     <ul>
         <% MenuItem.get_items(mc.id).map do |mi| %>
-            <li><%= "#{mi.name} #{mi.price}" %></li>
+            <li><label class="MenuItem">
+                <p class="MenuItem-title"><%= mi.name %></p>
+                <p class="MenuItem-price">₹ <%= mi.price %></p>
+            </label></li>
         <% end %>
     </ul>
 <% end %>

@@ -1,0 +1,17 @@
+.MenuCategory {
+  font-size: 38px;
+}
+
+.MenuCategory-title {
+  font-size: 30px;
+}
+
+.MenuItem {
+  display: flex;
+  font-size: 22px;
+}
+
+.MenuItem-title,
+.MenuItem-price {
+  margin-left: 20px;
+}
