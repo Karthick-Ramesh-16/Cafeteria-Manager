@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   get "menu_categories", to: "menu_categories#index"
 
-  get "users", to: "users#index"
+  resources :users
 end
