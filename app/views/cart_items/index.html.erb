@@ -1,0 +1,19 @@
+<h1 class="MenuCategory">Cart Items</h1>
+
+<% @cart_items.each do |mc| %>
+    <ul>
+        <% MenuItem.get_cart_items(mc.menu_item_id).each do |mi| %>
+            <% if mi.availability %>
+                <li>
+                    <div class="MenuItem-container">
+                        <p class="MenuItem-title"><%= mi.name %></p>
+                        <p class="MenuItem-price">₹ <%= mi.price %></p>
+                        <%= button_tag("Buy", type: "button") %>
+                        <%= button_tag("Add to cart", type: "button") %>
+                    </div>
+                    <p class="MenuItem-description"><%= mi.description %>
+                </li>
+            <% end %>
+        <% end %>
+    </ul>
+<% end %>

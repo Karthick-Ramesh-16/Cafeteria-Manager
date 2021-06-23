@@ -12,10 +12,11 @@
 
   <body>
     <% if @current_user.present? %>
-      <p class="UserHeader">
-        <%= @current_user.first_name + " " + @current_user.last_name %>
-        <%= link_to "Sign out", destroy_session_path, method: "DELETE" %>
-      </p>
+      <ul class="UserHeader">
+        <li><%= @current_user.first_name + " " + @current_user.last_name %></li>
+        <li><%= link_to "Cart", cart_items_path, class: "UserHeader-cart" %></li>
+        <li><%= link_to "Sign out", destroy_session_path, method: "DELETE" %></li>
+      </ul>
     <% end %>
 
     <%= yield %>
