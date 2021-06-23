@@ -17,6 +17,10 @@
   display: flex;
 }
 
+.UserHeader-home {
+  margin-left: 10px;
+}
+
 .UserHeader-cart {
   margin-left: 10px;
   margin-right: 10px;

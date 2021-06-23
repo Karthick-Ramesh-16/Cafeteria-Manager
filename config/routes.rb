@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "menu_categories", to: "menu_categories#index"
 
   get "cart_items", to: "cart_items#index"
+  post "cart_items", to: "cart_items#create"
 
   resources :users
 
