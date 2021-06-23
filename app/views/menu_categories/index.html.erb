@@ -1,25 +1,21 @@
 <h1 class="MenuCategory">Menu</h1>
 
-<% MenuCategory.all.each_with_index do |mc, index| %>
-    <div class="MenuCategory-container">
-        <%= button_tag ">", type: "button", class: "MenuCategory-button", onclick: "show(#{index})" %>
-        <h2 class="MenuCategory-title"><%= mc.name %></h2>
-    </div>
+<% MenuCategory.all.each do |mc| %>
+    <h2 class="MenuCategory-title"><%= mc.name %></h2>
 
-    <ul class="MenuItem">
-        <% MenuItem.get_items(mc.id).each do |mi| %>
-            <li><label class="MenuItem-container">
-                <p class="MenuItem-title"><%= mi.name %></p>
-                <p class="MenuItem-price">₹ <%= mi.price %></p>
-            </label></li>
+    <ul>
+        <% MenuItem.get_menu_items(mc.id).each do |mi| %>
+            <% if mi.availability %>
+                <li>
+                    <div class="MenuItem-container">
+                        <p class="MenuItem-title"><%= mi.name %></p>
+                        <p class="MenuItem-price">₹ <%= mi.price %></p>
+                        <%= button_tag("Buy", type: "button") %>
+                        <%= button_tag("Add to cart", type: "button") %>
+                    </div>
+                    <p class="MenuItem-description"><%= mi.description %>
+                </li>
+            <% end %>
         <% end %>
     </ul>
 <% end %>
-
-<script>
-    function show(index) {
-        item = document.getElementsByClassName("MenuItem")[index]
-        type = item.style.display
-        item.style.display = (type == "" || type == "none") ? "block" : "none"
-    }
-</script>
