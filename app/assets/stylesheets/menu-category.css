@@ -18,6 +18,11 @@
 
 .MenuCategory-title {
   font-size: 28px;
+  margin-top: 10px;
+}
+
+.MenuItem {
+  margin-top: 8px;
 }
 
 .MenuItem-container {
@@ -25,7 +30,6 @@
   font-size: 22px;
   padding: 8px;
   margin-left: 35px;
-  /* justify-content: space-between; */
   background-color: #eee;
 }
 

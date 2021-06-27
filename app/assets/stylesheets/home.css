@@ -11,19 +11,16 @@
 .UserHeader {
   color: white;
   padding: 15px;
-  background-color: #333;
+  background-color: #555;
   font-size: 16px;
   margin-bottom: 10px;
   display: flex;
 }
 
-.UserHeader-home {
+.UserHeader-home,
+.UserHeader-cart,
+.UserHeader-sign-out {
   margin-left: 10px;
-}
-
-.UserHeader-cart {
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .Flash-error {
