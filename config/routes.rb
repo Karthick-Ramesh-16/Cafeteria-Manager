@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get "orders", to: "orders#index"
 
-  get "order_items", to: "order_items#index"
+  get "order_items/:id", to: "order_items#index"
+  post "order_items", to: "order_items#create"
 
   get "cart_items", to: "cart_items#index"
   post "cart_items", to: "cart_items#create"
