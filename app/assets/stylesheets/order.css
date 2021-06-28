@@ -1,0 +1,20 @@
+.Order-head {
+  font-size: 32px;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+.Order-title {
+  background-color: #bbb;
+}
+
+.Order-data {
+  background-color: #ddd;
+}
+
+.Order-number {
+  margin-right: 10px;
+}

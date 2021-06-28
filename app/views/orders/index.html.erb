@@ -1,0 +1,19 @@
+<h1 class="Order-head">Your Orders</h1>
+
+<table>
+    <tr class="Order-title">
+        <th class="Order-number">S. No.</th>
+        <th>Invoice ID</th>
+        <th>Ordered At</th>
+        <th>Delivered At</th>
+    </tr>
+
+    <% @orders.each_with_index do |order, index| %>
+        <tr class="Order-data">
+            <td class="Order-number"><%= index + 1 %></td>
+            <td><%= link_to order.id, order_items_path %></td>
+            <td><%= order.ordered_at.to_s(:long) %></td>
+            <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending" %></td>
+        </tr>
+    <% end %>
+</table>

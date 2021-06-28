@@ -21,6 +21,14 @@
 .UserHeader-cart,
 .UserHeader-sign-out {
   margin-left: 10px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.UserHeader-home:hover,
+.UserHeader-cart:hover,
+.UserHeader-sign-out:hover {
+  color: white;
 }
 
 .Flash-error {

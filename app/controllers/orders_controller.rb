@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    render plain: Order.first.ordered_at
+    @orders = current_user.orders
+    render "index"
   end
 end
