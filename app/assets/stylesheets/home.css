@@ -1,11 +1,34 @@
+.Home-container {
+  position: abosolute;
+  margin-left: 10%;
+  margin-top: 25%;
+}
+
 .Home-title {
-  font-size: 20px;
+  font-size: 30px;
   margin-bottom: 30px;
 }
 
-.Home-authenticate {
-  font-size: 16px;
-  margin-bottom: 20px;
+.Home-signup,
+.Home-signin {
+  margin-left: 50px;
+  color: white;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.Home-signup {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 23px;
+  padding-right: 23px;
+  background-color: #3535f5;
+}
+
+.Home-signin {
+  padding: 10px;
+  background-color: green;
 }
 
 .UserHeader {
