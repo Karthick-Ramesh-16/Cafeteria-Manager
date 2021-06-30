@@ -13,11 +13,11 @@
   <body>
     <% if @current_user.present? %>
       <ul class="UserHeader">
-        <li><%= @current_user.first_name + " " + @current_user.last_name %></li>
         <li><%= link_to "Home", menu_categories_path, class: "UserHeader-home" %></li>
-        <li><%= link_to "Orders", orders_path, class: "UserHeader-cart" %></li>
+        <li><%= link_to "Orders", orders_path, class: "UserHeader-order" %></li>
         <li><%= link_to "Cart", cart_items_path, class: "UserHeader-cart" %></li>
         <li><%= link_to "Sign out", destroy_session_path, method: "DELETE", class: "UserHeader-sign-out" %></li>
+        <li class="UserHeader-name"><%= @current_user.first_name + " " + @current_user.last_name %></li>
       </ul>
     <% end %>
 

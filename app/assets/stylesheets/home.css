@@ -32,26 +32,40 @@
 }
 
 .UserHeader {
-  color: white;
-  padding: 15px;
-  background-color: #555;
-  font-size: 16px;
-  margin-bottom: 10px;
-  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
 .UserHeader-home,
+.UserHeader-order,
 .UserHeader-cart,
 .UserHeader-sign-out {
-  margin-left: 10px;
-  color: #ccc;
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
 }
 
-.UserHeader-home:hover,
+.UserHeader-order:hover,
 .UserHeader-cart:hover,
 .UserHeader-sign-out:hover {
+  background-color: #111;
+}
+
+.UserHeader-home {
+  background-color: #fcc603;
+}
+
+.UserHeader-name {
+  float: right;
   color: white;
+  text-align: center;
+  padding: 14px 16px;
 }
 
 .Flash-error {

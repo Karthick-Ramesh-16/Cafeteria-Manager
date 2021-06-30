@@ -21,12 +21,14 @@
   margin-top: 10px;
 }
 
-.MenuItem {
-  margin-top: 8px;
+.MenuItem-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .MenuItem-container {
-  display: flex;
   font-size: 22px;
   padding: 8px;
   margin-left: 35px;
@@ -43,8 +45,15 @@
 }
 
 .MenuItem-price,
-.MenuItem-quantity,
-.MenuItem-BuyButton,
-.MenuItem-AddCart {
+.MenuItem-quantity {
   margin-left: 8px;
+}
+
+.AddCart {
+  float: right;
+}
+
+.AddCart-button {
+  font-weight: bold;
+  border: 1px solid;
 }
