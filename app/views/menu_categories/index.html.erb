@@ -10,7 +10,8 @@
                     <div class="MenuItem-container">
                         <span class="MenuItem-title"><%= item.name %></span>
                         <span class="MenuItem-price">₹<%= item.price %></span>
-                        <%= form_with(url: "/cart_items?menu_item_id=#{item.id}", method: "POST", class: "AddCart") do %>
+                        <%= form_with(url: "/cart_items?menu_item_id=#{item.id}",
+                                      method: "POST", class: "AddCart") do %>
                             <%= submit_tag("Add +", class: "AddCart-button") %>
                         <% end %>
                     </div>

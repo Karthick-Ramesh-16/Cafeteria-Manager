@@ -1,7 +1,7 @@
 .Home-container {
   position: abosolute;
-  margin-left: 10%;
-  margin-top: 25%;
+  margin-left: 33%;
+  margin-top: 15%;
 }
 
 .Home-title {
@@ -31,7 +31,7 @@
   background-color: green;
 }
 
-.UserHeader {
+.NavigationBar {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -39,10 +39,10 @@
   background-color: #333;
 }
 
-.UserHeader-home,
-.UserHeader-order,
-.UserHeader-cart,
-.UserHeader-sign-out {
+.NavigationBar-home,
+.NavigationBar-order,
+.NavigationBar-cart,
+.NavigationBar-sign-out {
   float: left;
   display: block;
   color: white;
@@ -51,17 +51,17 @@
   text-decoration: none;
 }
 
-.UserHeader-order:hover,
-.UserHeader-cart:hover,
-.UserHeader-sign-out:hover {
+.NavigationBar-order:hover,
+.NavigationBar-cart:hover,
+.NavigationBar-sign-out:hover {
   background-color: #111;
 }
 
-.UserHeader-home {
+.NavigationBar-home {
   background-color: #fcc603;
 }
 
-.UserHeader-name {
+.NavigationBar-name {
   float: right;
   color: white;
   text-align: center;
