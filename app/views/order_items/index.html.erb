@@ -5,21 +5,19 @@
         <th>quantity</th>
         <th>Total cost</th>
     </tr>
-    <% total_amount = 0 %>
+
     <% @order_items.each_with_index do |item, index| %>
         <tr class="Order-data">
             <td><%= index + 1 %></td>
             <td><%= item.menu_item_name %></td>
             <td><%= item.quantity %></td>
             <td>₹<%= item.quantity * item.menu_item_price %></td>
-            <% total_amount += item.quantity * item.menu_item_price %>
         </tr>
     <% end %>
 </table>
 
 <div class="Order-total">
-    <h3>Total:</h3>
-    <p>₹<%= total_amount %></p>
+    <p>Total: ₹<%= @order_items.first.total_amount %></p>
 </div>
 
 <div class="Order-address">
