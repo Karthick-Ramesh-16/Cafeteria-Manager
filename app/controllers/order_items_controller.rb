@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   def index
-    order = Order.find(params[:id])
+    order = Order.find(params[:order_id])
     if order.user_id == current_user.id
       @order_items = order.order_items
       render "index"
