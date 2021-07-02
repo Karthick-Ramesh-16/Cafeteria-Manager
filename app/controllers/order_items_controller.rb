@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
   def index
     order = Order.find(params[:order_id])
-    if order.user_id == current_user.id
+    if order.user_id == @current_user.id
       @order_items = order.order_items
       render "index"
     else
@@ -10,7 +10,7 @@ class OrderItemsController < ApplicationController
   end
 
   def create
-    current_user.cart_items.each do |item|
+    @current_user.cart_items.each do |item|
       OrderItem.create!(
         order_id: Order.last.id,
         menu_item_id: item.menu_item_id,
@@ -19,7 +19,7 @@ class OrderItemsController < ApplicationController
         quantity: item.quantity,
       )
     end
-    current_user.cart_items.destroy_all
+    @current_user.cart_items.destroy_all
 
     redirect_to orders_path
   end

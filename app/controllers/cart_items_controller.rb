@@ -1,6 +1,6 @@
 class CartItemsController < ApplicationController
   def index
-    @cart_items = current_user.cart_items
+    @cart_items = @current_user.cart_items
     render "index"
   end
 
@@ -34,7 +34,7 @@ class CartItemsController < ApplicationController
   end
 
   def destroy_all
-    current_user.cart_items.destroy_all
+    @current_user.cart_items.destroy_all
     redirect_to cart_items_path
   end
 end

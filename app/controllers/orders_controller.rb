@@ -1,12 +1,12 @@
 class OrdersController < ApplicationController
   def index
-    @orders = current_user.orders
+    @orders = @current_user.orders
     render "index"
   end
 
   def create
     order = Order.create!(
-      user_id: current_user.id,
+      user_id: @current_user.id,
       ordered_at: DateTime.now,
       total_amount: params[:total_amount],
     )
