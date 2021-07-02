@@ -1,3 +1,12 @@
+main {
+  font-family: sans-serif;
+  max-width: 1200px;
+  margin-top: 32px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Home-container {
   position: abosolute;
   margin-left: 33%;
