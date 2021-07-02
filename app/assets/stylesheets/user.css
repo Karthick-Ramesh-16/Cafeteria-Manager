@@ -17,6 +17,15 @@
   padding: 8px;
 }
 
+.Form-input-price {
+  padding: 4px;
+}
+
+.Form-input-description {
+  font-size: 16px;
+  padding: 8px;
+}
+
 .Form-submit {
   font-size: 20px;
   color: white;

@@ -51,7 +51,8 @@ main {
 .NavigationBar-home,
 .NavigationBar-order,
 .NavigationBar-cart,
-.NavigationBar-sign-out {
+.NavigationBar-sign-out,
+.NavigationBar-profile {
   float: left;
   display: block;
   color: white;
@@ -62,7 +63,8 @@ main {
 
 .NavigationBar-order:hover,
 .NavigationBar-cart:hover,
-.NavigationBar-sign-out:hover {
+.NavigationBar-sign-out:hover,
+.NavigationBar-profile:hover {
   background-color: #111;
 }
 
@@ -70,7 +72,7 @@ main {
   background-color: #fcc603;
 }
 
-.NavigationBar-name {
+.NavigationBar-profile {
   float: right;
   color: white;
   text-align: center;

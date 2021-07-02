@@ -16,8 +16,12 @@
         <li><%= link_to "Home", menu_categories_path, class: "NavigationBar-home" %></li>
         <li><%= link_to "Orders", orders_path, class: "NavigationBar-order" %></li>
         <li><%= link_to "Cart", cart_items_path, class: "NavigationBar-cart" %></li>
-        <li><%= link_to "Sign out", destroy_session_path, method: "DELETE", class: "NavigationBar-sign-out" %></li>
-        <li class="NavigationBar-name"><%= @current_user.first_name + " " + @current_user.last_name %></li>
+        <li><%= link_to "Sign out", destroy_session_path,
+                        method: "DELETE", class: "NavigationBar-sign-out" %>
+        </li>
+        <li><%= link_to "#{@current_user.first_name} #{@current_user.last_name}",
+                        new_menu_item_path, method: "GET", class: "NavigationBar-profile" %>
+        </li>
       </ul>
     <% end %>
 

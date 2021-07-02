@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   get "/", to: "home#index"
 
   get "/menu_categories", to: "menu_categories#index"
+  post "/menu_categories", to: "menu_categories#create", as: :create_menu_category
+
+  get "/new_menu_item", to: "menu_items#new", as: :new_menu_item
+  get "/create_menu_item", to: "menu_items#create", as: :create_menu_item
 
   get "/orders", to: "orders#index"
   post "/orders/:total_amount", to: "orders#create"
