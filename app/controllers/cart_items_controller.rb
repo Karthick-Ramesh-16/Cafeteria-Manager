@@ -6,12 +6,13 @@ class CartItemsController < ApplicationController
 
   def create
     menu_item_id = params[:menu_item_id]
-    if MenuItem.find(menu_item_id).present?
+    items = @current_user.cart_items
+    if CartItem.find_by(user_id: @current_user.id, menu_item_id: menu_item_id).present?
       redirect_to menu_categories_path
     else
       CartItem.create!(
         user_id: current_user.id,
-        menu_item_id: :menu_item_id,
+        menu_item_id: menu_item_id,
         quantity: 1,
       )
       redirect_to cart_items_path

@@ -30,7 +30,7 @@
 
 .MenuItem-container {
   font-size: 22px;
-  padding: 8px;
+  padding: 14px;
   margin-left: 35px;
   background-color: #eee;
 }
@@ -54,52 +54,17 @@
 }
 
 .AddCart-button {
-  font-weight: bold;
-  border: 1px solid;
-}
-
-.CartItem-quantity {
-  float: right;
-  padding: 8px;
-  border: 1px solid #111;
-  border-radius: 10px;
+  color: green;
+  border: 2px solid green;
+  border-radius: 4px;
+  padding: 6px;
+  position: relative;
+  bottom: 4px;
 }
 
 .AddQuantity-button,
 .ReduceQuantity-button {
   cursor: pointer;
-  background-color: white;
+  background-color: transparent;
   border: 1px solid transparent;
-}
-
-.Cart-details {
-  position: fixed;
-  bottom: 5%;
-  font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  box-shadow: -2px -2px grey;
-}
-
-.CartClear-button {
-  color: #eb465a;
-  border: 2px solid #eb465a;
-  margin-right: 10px;
-}
-
-.Checkout-button {
-  color: #48bb78;
-  border: 2px solid #48bb78;
-}
-
-.Checkout-button,
-.CartClear-button {
-  font-size: 16px;
-  background-color: white;
-  border-radius: 4px;
-  padding: 6px 22px;
-  cursor: pointer;
 }

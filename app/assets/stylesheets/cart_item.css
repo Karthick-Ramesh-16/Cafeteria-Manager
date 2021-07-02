@@ -1,0 +1,81 @@
+.CartItem-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Cart-details {
+  width: 32%;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.Cart-total {
+  position: relative;
+  top: 8px;
+}
+
+.CartClear-button {
+  color: #eb465a;
+  border: 2px solid #eb465a;
+}
+
+.Checkout-button {
+  color: #48bb78;
+  border: 2px solid #48bb78;
+}
+
+.Checkout-button,
+.CartClear-button {
+  font-size: 16px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 6px 22px;
+  cursor: pointer;
+}
+
+.CartItem-container {
+  font-size: 22px;
+  padding: 8px;
+  margin-left: 35px;
+  margin-top: 20px;
+  background-color: #eee;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.CartItem-name,
+.CartItem-price {
+  padding: 4px;
+}
+
+.CartItem-quantity {
+  position: relative;
+  bottom: 22px;
+  float: right;
+  display: flex;
+  padding: 8px;
+  border: 1px solid #111;
+  border-radius: 10px;
+}
+
+.CartEmpty {
+  text-align: center;
+  margin-top: 8%;
+}
+
+.CartEmpty-text {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.CartEmpty-button {
+  font-size: 20px;
+  color: white;
+  background-color: #fcc603;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 6px 20px;
+}
