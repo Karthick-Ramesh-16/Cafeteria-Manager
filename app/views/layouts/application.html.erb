@@ -19,8 +19,8 @@
         <li><%= link_to "Sign out", destroy_session_path,
                         method: "DELETE", class: "NavigationBar-sign-out" %>
         </li>
-        <li><%= link_to "#{@current_user.first_name} #{@current_user.last_name}",
-                        new_menu_item_path, method: "GET", class: "NavigationBar-profile" %>
+        <li class="NavigationBar-profile">
+          <%= "#{@current_user.first_name} #{@current_user.last_name}" %>
         </li>
       </ul>
     <% end %>

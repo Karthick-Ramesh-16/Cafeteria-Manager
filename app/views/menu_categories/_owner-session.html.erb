@@ -1,0 +1,28 @@
+<% menu_categories.each do |category| %>
+    <h2 class="MenuCategory-title"><%= category.name %></h2>
+    <%= form_with(url: "/menu_categories/#{category.id}", method: "PUT", class: "UpdateCategory") do %>
+        <%= submit_tag(category.status ? "Close" : "Open", class: "UpdateCategory-button") %>
+    <% end %>
+
+    <ul class="MenuItem-list">
+        <% MenuItem.get_menu_items(category.id).each do |item| %>
+            <li><div class="MenuItem-container">
+                    <span class="MenuItem-title"><%= item.name %></span>
+                    <span class="MenuItem-price">₹<%= item.price %></span>
+                    <div class="ItemButton-container">
+                        <%= form_with(url: "/menu_items/#{item.id}",
+                                      method: "PUT", class: "UpdateItem") do %>
+                            <%= submit_tag("Set #{item.availability ? "un" : nil}available",
+                                           class: "UpdateItem-button") %>
+                        <% end %>
+                        <%= form_with(url: "/menu_items/#{item.id}",
+                                      method: "DELETE", class: "RemoveItem") do %>
+                            <%= submit_tag("Remove", class: "RemoveItem-button") %>
+                        <% end %>
+                    </div>
+                </div>
+                <p class="MenuItem-description"><%= item.description %>
+            </li>
+        <% end %>
+    </ul>
+<% end %>

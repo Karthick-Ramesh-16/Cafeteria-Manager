@@ -2,6 +2,59 @@
   font-size: 35px;
 }
 
+.UpdateCategory {
+  float: right;
+  position: relative;
+  bottom: 32px;
+}
+
+.AddItem {
+  float: right;
+  position: relative;
+  bottom: 35px;
+}
+
+.UpdateCategory-button,
+.AddItem-button,
+.AddCart-button {
+  color: #48bb78;
+  border: 2px solid #48bb78;
+}
+
+.UpdateItem-button {
+  color: #1a73e8;
+  border: 2px solid #1a73e8;
+}
+
+.RemoveItem-button {
+  color: #eb465a;
+  border: 2px solid #eb465a;
+}
+
+.UpdateCategory-button,
+.AddItem-button,
+.AddCart-button,
+.UpdateItem-button,
+.RemoveItem-button {
+  font-size: 16px;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 6px 22px;
+  cursor: pointer;
+}
+
+.AddCart-button,
+.ItemButton-container {
+  position: relative;
+  bottom: 6px;
+}
+
+.ItemButton-container {
+  width: 24%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .MenuCategory-container {
   display: flex;
   border: 2px solid darkgrey;
@@ -31,7 +84,8 @@
 .MenuItem-container {
   font-size: 22px;
   padding: 14px;
-  margin-left: 35px;
+  margin-left: 30px;
+  margin-top: 10px;
   background-color: #eee;
 }
 
@@ -39,7 +93,7 @@
   padding: 10px;
   margin-top: 2px;
   margin-bottom: 12px;
-  margin-left: 35px;
+  margin-left: 30px;
   text-align: justify;
   background-color: #eee;
 }
@@ -49,17 +103,9 @@
   margin-left: 8px;
 }
 
-.AddCart {
+.AddCart,
+.ItemButton-container {
   float: right;
-}
-
-.AddCart-button {
-  color: green;
-  border: 2px solid green;
-  border-radius: 4px;
-  padding: 6px;
-  position: relative;
-  bottom: 4px;
 }
 
 .AddQuantity-button,

@@ -13,4 +13,16 @@ class MenuItemsController < ApplicationController
 
     redirect_to menu_categories_path
   end
+
+  def update
+    item = MenuItem.find(params[:id])
+    item.availability = !item.availability
+    item.save!
+    redirect_to menu_categories_path
+  end
+
+  def destroy
+    MenuItem.find(params[:id]).destroy
+    redirect_to menu_categories_path
+  end
 end

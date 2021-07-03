@@ -19,4 +19,11 @@ class MenuCategoriesController < ApplicationController
       price: params[:price],
     )
   end
+
+  def update
+    item = MenuCategory.find(params[:id])
+    item.status = !item.status
+    item.save!
+    redirect_to menu_categories_path
+  end
 end
