@@ -1,81 +1,81 @@
 .CartItem-head {
   display: flex;
-  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.Cart-details {
-  width: 32%;
-  font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid transparent;
+.CartItem-body {
+  padding: 8px;
+  margin-left: 15px;
+  border: 2px solid #444;
   border-radius: 4px;
+  height: 400px;
+  overflow-y: scroll;
+  background-image: url("cart.png");
+  background-repeat: no-repeat;
+  background-size: 250px 300px;
+  background-position: 80px 70px;
 }
 
-.Cart-total {
+/* .Cart-total {
   position: relative;
-  top: 8px;
+  top: 4px;
+} */
+
+.CartClear {
+  position: relative;
+  left: 45%;
 }
 
 .CartClear-button {
   color: #eb465a;
+  background-color: transparent;
   border: 2px solid #eb465a;
+  border-radius: 4px;
+  padding: 6px 18px;
+  cursor: pointer;
 }
 
 .Checkout-button {
-  color: #48bb78;
-  border: 2px solid #48bb78;
-}
-
-.Checkout-button,
-.CartClear-button {
-  font-size: 16px;
-  background-color: white;
-  border-radius: 4px;
-  padding: 6px 22px;
+  width: 100%;
+  color: white;
+  background-color: #48bb78;
+  border: 2px solid transparent;
+  padding: 6px 18px;
   cursor: pointer;
 }
 
 .CartItem-container {
-  font-size: 22px;
-  padding: 8px;
-  margin-left: 35px;
-  margin-top: 20px;
+  font-size: 18px;
+  padding: 6px;
+  margin-bottom: 5px;
   background-color: #eee;
-  border: 2px solid transparent;
-  border-radius: 4px;
+  border: 1px solid transparent;
+  border-radius: 6px;
 }
 
 .CartItem-name,
 .CartItem-price {
-  padding: 4px;
+  padding-top: 9px;
 }
 
 .CartItem-quantity {
   position: relative;
-  bottom: 22px;
+  bottom: 45px;
   float: right;
   display: flex;
-  padding: 8px;
+  padding: 6px;
   border: 1px solid #111;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-.CartEmpty {
-  text-align: center;
-  margin-top: 8%;
+.Cart-checkout {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .CartEmpty-text {
-  font-size: 40px;
+  text-align: center;
+  margin-top: 3%;
+  font-size: 30px;
   margin-bottom: 20px;
-}
-
-.CartEmpty-button {
-  font-size: 20px;
-  color: white;
-  background-color: #fcc603;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  padding: 6px 20px;
 }

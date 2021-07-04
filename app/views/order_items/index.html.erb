@@ -22,5 +22,5 @@
 
 <div class="Order-address">
     <h3>Delivered to:</h3>
-    <p><%= @current_user.home_address %></p>
+    <p><%= @order_items.first.destination %></p>
 </div>

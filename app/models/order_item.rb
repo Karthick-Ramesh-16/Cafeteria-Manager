@@ -5,4 +5,8 @@ class OrderItem < ActiveRecord::Base
   def total_amount
     Order.find(order_id).total_amount
   end
+
+  def destination
+    Order.find(order_id).destination
+  end
 end
