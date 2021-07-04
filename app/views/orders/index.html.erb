@@ -6,6 +6,9 @@
         <th>Invoice ID</th>
         <th>Ordered At</th>
         <th>Delivered At</th>
+        <% if @current_user.role != "customer" %>
+            <th></th>
+        <% end %>
     </tr>
 
     <% @orders.each_with_index do |order, index| %>
@@ -14,6 +17,12 @@
             <td><%= link_to order.id, order_items_path(order_id: order.id), method: "GET" %></td>
             <td><%= order.ordered_at.to_s(:long) %></td>
             <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending" %></td>
+            <% if @current_user.role != "customer" %>
+                <td><%= form_with(url: "/orders/#{order.id}", method: "PUT") do %>
+                        <%= submit_tag("Set delivered") %>
+                    <% end %>
+                </td>
+            <% end %>
         </tr>
     <% end %>
 </table>

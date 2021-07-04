@@ -8,11 +8,15 @@ table {
 }
 
 .Order-title {
-  background-color: #bbb;
+  background-color: #999;
 }
 
 .Order-data {
   background-color: #ddd;
+}
+
+.Order-data:hover {
+  background-color: #bbb;
 }
 
 .Order-number {
