@@ -12,17 +12,15 @@
 
   <body>
     <% if @current_user.present? %>
-      <ul class="NavigationBar">
-        <li><%= link_to "Home", menu_categories_path, class: "NavigationBar-home" %></li>
-        <li><%= link_to "Orders", orders_path, class: "NavigationBar-order" %></li>
-        <li><%= link_to "Cart", cart_items_path, class: "NavigationBar-cart" %></li>
-        <li><%= link_to "Sign out", destroy_session_path,
-                        method: "DELETE", class: "NavigationBar-sign-out" %>
-        </li>
-        <li class="NavigationBar-profile">
+      <div class="NavigationBar">
+        <%= link_to "Home", menu_categories_path, class: "NavigationBar-home" %>
+        <%= link_to "Orders", orders_path, class: "NavigationBar-order" %>
+        <%= link_to "Sign out", destroy_session_path,
+                    method: "DELETE", class: "NavigationBar-sign-out" %>
+        <label class="NavigationBar-profile">
           <%= "#{@current_user.first_name} #{@current_user.last_name}" %>
-        </li>
-      </ul>
+        </label>
+      </div>
     <% end %>
 
     <% if flash[:error] %>
