@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_27_105845) do
+ActiveRecord::Schema.define(version: 2021_07_04_190716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2021_06_27_105845) do
     t.bigint "user_id"
     t.bigint "menu_item_id"
     t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "destination"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -57,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_105845) do
     t.decimal "total_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "destination"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,7 +72,6 @@ ActiveRecord::Schema.define(version: 2021_06_27_105845) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.string "home_address"
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
