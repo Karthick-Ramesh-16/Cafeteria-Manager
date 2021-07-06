@@ -1,50 +1,16 @@
 main {
   font-family: sans-serif;
   max-width: 1200px;
-  margin-top: 45px;
+  margin-top: 30px;
   margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
 }
 
-.Home-container {
-  position: abosolute;
-  margin-left: 33%;
-  margin-top: 15%;
-}
-
-.Home-title {
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-
-.Home-signup,
-.Home-signin {
-  margin-left: 50px;
-  color: white;
-  text-decoration: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-
-.Home-signup {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 23px;
-  padding-right: 23px;
-  background-color: #3535f5;
-}
-
-.Home-signin {
-  padding: 10px;
-  background-color: green;
-}
-
 .NavigationBar {
-  z-index: 10;
+  z-index: 50;
   overflow: hidden;
   background-color: #333;
-  border: 1px solid black;
   position: fixed;
   top: 0;
   width: 100%;
@@ -52,7 +18,7 @@ main {
 
 .NavigationBar-home,
 .NavigationBar-order,
-.NavigationBar-sign-out,
+.NavigationBar-signout,
 .NavigationBar-profile {
   float: left;
   display: block;
@@ -63,8 +29,7 @@ main {
 }
 
 .NavigationBar-order:hover,
-.NavigationBar-sign-out:hover,
-.NavigationBar-profile:hover {
+.NavigationBar-signout:hover {
   background-color: #111;
 }
 
@@ -72,6 +37,7 @@ main {
   background-color: #fcc603;
 }
 
+.NavigationBar-signout,
 .NavigationBar-profile {
   float: right;
   color: white;
@@ -85,5 +51,5 @@ main {
   border: 1px solid transparent;
   border-radius: 4px;
   padding: 12px;
-  margin-bottom: 20px;
+  margin-top: 44px;
 }

@@ -1,3 +1,17 @@
+.UsersNew {
+  position: relative;
+  left: 30%;
+  width: 22%;
+  padding: 20px 40px;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 2px 2px;
+}
+
+.SignUp:visited {
+  color: blue;
+}
+
 .NewUser-title {
   font-size: 30px;
   margin-bottom: 40px;
@@ -27,6 +41,7 @@
 }
 
 .Form-submit {
+  cursor: pointer;
   font-size: 20px;
   color: white;
   background-color: #fcc603;

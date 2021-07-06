@@ -1,6 +1,5 @@
-<h1 class="NewUser-title">Sign In</h1>
-
 <section class="UsersNew">
+	<h1 class="NewUser-title">Sign In</h1>
 	<%= form_with(url: sessions_path) do |form| %>
 		<div class="Form-section">
 			<p class="FormInput-label">Email: </p>
@@ -14,4 +13,5 @@
 			<%= form.submit "Sign In", class: "Form-submit" %>
 		</div>
 	<% end %>
+	<%= link_to "Create new account", new_user_path, class: "SignUp" %>
 </section>
