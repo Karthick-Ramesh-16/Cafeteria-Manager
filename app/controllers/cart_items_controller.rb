@@ -9,7 +9,7 @@ class CartItemsController < ApplicationController
         quantity: 1,
       )
     end
-    redirect_to menu_categories_path
+    redirect_back(fallback_location: "/")
   end
 
   def update
@@ -23,11 +23,11 @@ class CartItemsController < ApplicationController
       item.save!
     end
 
-    redirect_to menu_categories_path
+    redirect_back(fallback_location: "/")
   end
 
   def destroy_all
     @current_user.cart_items.destroy_all
-    redirect_to menu_categories_path
+    redirect_back(fallback_location: "/")
   end
 end
