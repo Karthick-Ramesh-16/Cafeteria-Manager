@@ -1,12 +1,7 @@
 class OrderItemsController < ApplicationController
   def index
-    order = Order.find(params[:order_id])
-    if order.user_id == @current_user.id
-      @order_items = order.order_items
-      render "index"
-    else
-      redirect_to orders_path
-    end
+    @order_items = Order.find(params[:order_id]).order_items
+    render "index"
   end
 
   def create
