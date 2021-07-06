@@ -1,28 +1,27 @@
-<h1 class="Order-head">Your Orders</h1>
+<section style="margin-top: 60px;">
+    <h1 class="Order-head">Your Orders</h1>
 
-<table>
-    <tr class="Order-title">
-        <th class="Order-number">S. No.</th>
-        <th>Invoice ID</th>
-        <th>Ordered At</th>
-        <th>Delivered At</th>
-        <% if @current_user.role != "customer" %>
-            <th></th>
-        <% end %>
-    </tr>
-
-    <% @orders.each_with_index do |order, index| %>
-        <tr class="Order-data">
-            <td class="Order-number"><%= index + 1 %></td>
-            <td><%= link_to order.id, order_items_path(order_id: order.id), method: "GET" %></td>
-            <td><%= order.ordered_at.to_s(:long) %></td>
-            <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending" %></td>
+    <table>
+        <tr class="Order-title">
+            <th class="Order-number">S. No.</th>
+            <th>Invoice ID</th>
+            <th>Ordered At</th>
+            <th>Delivered At</th>
             <% if @current_user.role != "customer" %>
-                <td><%= form_with(url: "/orders/#{order.id}", method: "PUT") do %>
-                        <%= submit_tag("Set delivered") %>
-                    <% end %>
-                </td>
+                <th></th>
             <% end %>
         </tr>
-    <% end %>
-</table>
+
+        <% @orders.each_with_index do |order, index| %>
+            <tr class="Order-data">
+                <td class="Order-number"><%= index + 1 %></td>
+                <td><%= link_to order.id, order_items_path(order_id: order.id), method: "GET", class: "InvoiceID" %></td>
+                <td><%= order.ordered_at.to_s(:long) %></td>
+                <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending delivery" %></td>
+                <% if @current_user.role != "customer" %>
+                    <td><%= link_to "Set delivered", order_path(id: order.id), method: "PATCH" %></td>
+                <% end %>
+            </tr>
+        <% end %>
+    </table>
+</section>

@@ -1,7 +1,7 @@
 <h1 class="NewUser-title">Create new menu item</h1>
 
 <section class="MenuItem-new">
-	<%= form_with(url: create_menu_category_path) do |form| %>
+	<%= form_with(url: menu_categories_path, method: "POST") do |form| %>
 		<div class="Form-section">
 			<p class="FormInput-label">Item Name: </p>
 			<%= form.text_field :name, class: "Form-input", autofocus: true %>
@@ -14,7 +14,7 @@
 
         <div class="Form-section">
 			<p class="FormInput-label">
-                Price: ₹<%= form.number_field :price, class: "Form-input-price" %>
+                Price: ₹<%= form.text_field :price, class: "Form-input-price" %>
             </p>
 		</div>
 

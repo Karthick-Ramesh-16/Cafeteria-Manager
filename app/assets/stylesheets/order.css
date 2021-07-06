@@ -15,8 +15,8 @@ table {
   background-color: #ddd;
 }
 
-.Order-data:hover {
-  background-color: #bbb;
+.Order-data td {
+  padding: 10px;
 }
 
 .Order-number {
@@ -44,4 +44,8 @@ table {
   border-radius: 4px;
   color: #333;
   background-color: #f7f5fa;
+}
+
+.InvoiceID:visited {
+  color: blue;
 }
