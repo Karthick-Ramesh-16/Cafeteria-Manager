@@ -1,15 +1,32 @@
-<h1 class="MenuCategory">Menu Items</h1>
+<div class="MenuCategoryPart">
+    <h1 class="MenuCategory-HeadText">Category</h1>
+    <ul class="MenuCategory-list">
+        <% MenuCategory.all.each do |category| %>
+            <% if (@current_user.role == "Owner" or category.status) %>
+                <li><%= link_to category.name, menu_categories_path(menu_category_id: category.id),
+                                class: "MenuCategory-title" %>
+                </li>
+            <% end %>
+        <% end %>
+    </ul>
+</div>
 
-<% if @current_user.role == "owner" %>
-    <%= form_with(url: new_menu_item_path, method: "GET", class: "AddItem") do %>
-        <%= submit_tag("Add Item", class: "AddItem-button") %>
-    <% end %>
+<% if @current_user.role == "Owner" %>
+    <div class="Owner-MenuCategory-button">
+      <%= form_with(url: new_menu_item_path, method: "GET", class: "AddItem") do %>
+          <%= submit_tag("Add Item", class: "AddItem-button") %>
+      <% end %>
 
-    <%= render partial: "owner-session", locals: {
-                 menu_categories: MenuCategory.all,
-               } %>
+      <%= form_with(url: menu_category_path(id: @menu_items.first.menu_category_id),
+                    method: "PUT", class: "UpdateCategory") do %>
+          <%= submit_tag(MenuCategory.find(@menu_items.first.menu_category_id).status ? "Close" : "Open",
+                         class: "UpdateCategory-button") %>
+      <% end %>
+    </div>
+
+    <%= render partial: "owner-session" %>
+<% elsif @current_user.role == "Billing Clerk" %>
+    <%= render partial: "clerk-session" %>
 <% else %>
-    <%= render partial: "customer-session", locals: {
-                 menu_categories: MenuCategory.all,
-               } %>
+    <%= render partial: "customer-session" %>
 <% end %>

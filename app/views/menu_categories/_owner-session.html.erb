@@ -1,28 +1,23 @@
-<% menu_categories.each do |category| %>
-    <h2 class="MenuCategory-title"><%= category.name %></h2>
-    <%= form_with(url: "/menu_categories/#{category.id}", method: "PUT", class: "UpdateCategory") do %>
-        <%= submit_tag(category.status ? "Close" : "Open", class: "UpdateCategory-button") %>
-    <% end %>
-
-    <ul class="MenuItem-list">
-        <% MenuItem.get_menu_items(category.id).each do |item| %>
-            <li><div class="MenuItem-container">
-                    <span class="MenuItem-title"><%= item.name %></span>
-                    <span class="MenuItem-price">₹<%= item.price %></span>
-                    <div class="ItemButton-container">
-                        <%= form_with(url: "/menu_items/#{item.id}",
-                                      method: "PUT", class: "UpdateItem") do %>
-                            <%= submit_tag("Set #{item.availability ? "un" : nil}available",
-                                           class: "UpdateItem-button") %>
-                        <% end %>
-                        <%= form_with(url: "/menu_items/#{item.id}",
-                                      method: "DELETE", class: "RemoveItem") do %>
-                            <%= submit_tag("Remove", class: "RemoveItem-button") %>
-                        <% end %>
+<article style="margin-top: 40px;">
+    <aside class="Owner-MenuItemsPart">
+        <h1 class="MenuItem-HeadText">Menu Items</h1>            
+        <ul class="MenuItem-list">
+            <% @menu_items.each do |item| %>
+                <li><div class="MenuItem-container">
+                        <span class="MenuItem-title"><%= item.name %></span>
+                        <span class="MenuItem-price">₹<%= item.price %></span>
+                        <div class="ItemButton-container">
+                            <%= link_to "Edit", get_menu_item_path(id: item.id), class: "EditItem-button" %>
+                            <%= link_to "Set #{item.availability ? "un" : nil}available",
+                                        menu_item_path(id: item.id),
+                                        method: "PATCH", class: "UpdateItem-button" %>
+                            <%= link_to "Remove", menu_item_path(id: item.id),
+                                        method: "DELETE", class: "RemoveItem-button" %>
+                        </div>
                     </div>
-                </div>
-                <p class="MenuItem-description"><%= item.description %>
-            </li>
-        <% end %>
-    </ul>
-<% end %>
+                    <p class="MenuItem-description"><%= item.description %>
+                </li>
+            <% end %>
+        </ul>
+    <aside>
+</article>

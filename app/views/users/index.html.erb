@@ -1,0 +1,20 @@
+<section style="margin-top: 60px;">
+    <h1 style="font-size: 30px;">All Users</h1>
+
+    <table class="Users-table">
+        <tr>
+            <th>S. No.</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+        <% User.all.each_with_index do |user, index| %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= user.first_name + " " + user.last_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role %></td>
+            </tr>
+        <% end %>
+    </table>
+</section>

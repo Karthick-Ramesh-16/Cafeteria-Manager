@@ -1,0 +1,59 @@
+<article>
+    <aside class="CartItemsPart">
+        <div class="CartItem-head">
+            <h1 class="CartItem-HeadText">Cart <span>₹<%= CartItem.total_amount(@current_user.id) %></span></h1>
+            <div class="CartItem-button">
+                <%= link_to "Clear cart", clear_cart_path, method: "DELETE", class: "CartClear-button" %>
+                <%= link_to "Checkout", orders_path(total_amount: CartItem.total_amount(@current_user.id)),
+                            method: "POST", class: "Checkout-button" %>
+            </div>
+        </div>
+
+        <div class="CartItem-body">
+            <% if @cart_items.present? %>
+                <% @cart_items.each do |cart| %>
+                    <% item = MenuItem.find(cart.menu_item_id) %>
+                    <div class="CartItem-container">
+                        <p class="CartItem-name"><%= item.name %></p>
+
+                        <p class="CartItem-price">₹<%= item.price * cart.quantity %></p>
+
+                        <div class="CartItem-quantity">
+                            <%= link_to "-", change_quantity_path(id: cart.id, quantity: -1),
+                                        method: "PUT", class: "ReduceQuantity-button" %>
+
+                            <span class="Quantity-number"><%= cart.quantity %></span>
+                            
+                            <%= link_to "+", change_quantity_path(id: cart.id, quantity: 1),
+                                        method: "PUT", class: "AddQuantity-button" %>
+                        </div>
+                    </div>
+                <% end %>
+            <% else %>
+                <h3 class="CartEmpty-text">Cart is empty</h3>
+            <% end %>
+        </div>
+    </aside>
+
+    <div class="MenuItemsPart" id="MenuItemsPart">
+        <h1 class="MenuItem-HeadText">Menu Items</h1>
+        <ul class="MenuItem-list">
+            <% @menu_items.each do |item| %>
+                <li><div class="MenuItem-container">
+                        <span class="MenuItem-title"><%= item.name %></span>
+                        <span class="MenuItem-price">₹<%= item.price %></span>
+                        <% if item.availability %>
+                            <%= form_with(url: "/cart_items?menu_item_id=#{item.id}",
+                                          method: "POST", class: "AddCart") do %>
+                                <%= submit_tag("Add +", class: "AddCart-button") %>
+                            <% end %>
+                        <% else %>
+                            <span style="float:right;color:red;">Currently Unavailable</span>
+                        <% end %>
+                    </div>
+                    <p class="MenuItem-description"><%= item.description %>
+                </li>
+            <% end %>
+        </ul>
+    <div>
+</article>

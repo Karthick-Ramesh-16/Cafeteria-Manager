@@ -1,6 +1,12 @@
 class MenuCategoriesController < ApplicationController
   def index
     @cart_items = @current_user.cart_items
+    category_id = params[:menu_category_id]
+    if category_id.present?
+      @menu_items = MenuCategory.find(category_id).menu_items
+    else
+      @menu_items = MenuCategory.first.menu_items
+    end
     render "index"
   end
 
