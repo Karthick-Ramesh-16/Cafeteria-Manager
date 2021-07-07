@@ -23,7 +23,7 @@
         <%= link_to "Sign out", destroy_session_path,
                     method: "DELETE", class: "NavigationBar-signout" %>
         <label class="NavigationBar-profile">
-          <%= @current_user.first_name + " " + @current_user.last_name %>
+          <%= "#{@current_user.first_name} #{@current_user.last_name}" %>
         </label>
       </div>
     <% end %>

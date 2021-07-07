@@ -21,10 +21,10 @@
                 <td><%= order.ordered_at.to_s(:long) %></td>
                 <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending delivery" %></td>
                 <% if @current_user.role != "Customer" %>
-                        <td><% unless order.delivered_at %>
-                                <%= link_to "Set delivered", order_path(id: order.id), method: "PATCH" %>
-                            <% end %>
-                        </td>
+                    <td><% unless order.delivered_at %>
+                            <%= link_to "Set delivered", order_path(id: order.id), method: "PATCH" %>
+                        <% end %>
+                    </td>
                 <% end %>
             </tr>
         <% end %>

@@ -11,7 +11,7 @@
         <% User.all.each_with_index do |user, index| %>
             <tr class="Order-data">
                 <td><%= index + 1 %></td>
-                <td><%= user.first_name + " " + user.last_name %></td>
+                <td><%= "#{user.first_name} #{user.last_name}" %></td>
                 <td><%= user.email %></td>
                 <td><%= user.role %></td>
             </tr>

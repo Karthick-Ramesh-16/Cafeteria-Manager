@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
 
   def self.full_name(id)
     user = User.find(id)
-    user.first_name + " " + user.last_name
+    "#{user.first_name} #{user.last_name}"
   end
 end
