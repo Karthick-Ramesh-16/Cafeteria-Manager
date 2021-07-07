@@ -11,14 +11,14 @@ class MenuItemsController < ApplicationController
       availability: true,
     )
 
-    redirect_back(fallback_location: "/")
+    redirect_to menu_categories_path
   end
 
   def update
     item = MenuItem.find(params[:id])
     item.availability = !item.availability
     item.save!
-    redirect_back(fallback_location: "/")
+    redirect_to menu_categories_path
   end
 
   def get_menu_item
@@ -35,11 +35,11 @@ class MenuItemsController < ApplicationController
     item.price = params[:price].to_f
 
     item.save!
-    redirect_back(fallback_location: "/")
+    redirect_to menu_categories_path
   end
 
   def destroy
     MenuItem.find(params[:id]).destroy
-    redirect_back(fallback_location: "/")
+    redirect_to menu_categories_path
   end
 end

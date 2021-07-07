@@ -31,6 +31,6 @@ class MenuCategoriesController < ApplicationController
     item = MenuCategory.find(params[:id])
     item.status = !item.status
     item.save!
-    redirect_to menu_categories_path
+    redirect_back(fallback_location: "/")
   end
 end
