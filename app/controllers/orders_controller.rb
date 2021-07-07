@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
-    @orders = (@current_user.role == "Customer") ? @current_user.orders : Order.order(delivered_at: :desc)
+    @orders = (@current_user.role == "Customer" ? @current_user.orders : Order.all)
+    @orders = @orders.order("delivered_at DESC NULLS FIRST", id: :DESC)
     render "index"
   end
 

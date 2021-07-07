@@ -4,7 +4,7 @@
             <h1 class="CartItem-HeadText">Cart <span>₹<%= CartItem.total_amount(@current_user.id) %></span></h1>
             <div class="CartItem-button">
                 <%= link_to "Clear cart", clear_cart_path, method: "DELETE", class: "CartClear-button" %>
-                <button id="myBtn" class="Checkout-button">Checkout</button>
+                <button <%= @cart_items.empty? ? nil : "id=myBtn" %> class="Checkout-button">Checkout</button>
             </div>
         </div>
 

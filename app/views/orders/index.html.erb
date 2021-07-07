@@ -1,13 +1,15 @@
-<section style="margin-top: 60px;">
-    <h1 class="Order-head">Your Orders</h1>
+<h1 class="Order-head" style="margin-top:60px;margin-bottom:10px;">
+    <%= @current_user.role == "Owner" ? "All" : "Your" %> Orders
+</h1>
 
+<section>
     <table>
         <tr class="Order-title">
             <th class="Order-number">S. No.</th>
             <th>Invoice ID</th>
             <th>Ordered At</th>
             <th>Delivered At</th>
-            <% if @current_user.role != "customer" %>
+            <% if @current_user.role != "Customer" %>
                 <th></th>
             <% end %>
         </tr>
@@ -18,8 +20,11 @@
                 <td><%= link_to order.id, order_items_path(order_id: order.id), method: "GET", class: "InvoiceID" %></td>
                 <td><%= order.ordered_at.to_s(:long) %></td>
                 <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending delivery" %></td>
-                <% if @current_user.role != "customer" %>
-                    <td><%= link_to "Set delivered", order_path(id: order.id), method: "PATCH" %></td>
+                <% if @current_user.role != "Customer" %>
+                        <td><% unless order.delivered_at %>
+                                <%= link_to "Set delivered", order_path(id: order.id), method: "PATCH" %>
+                            <% end %>
+                        </td>
                 <% end %>
             </tr>
         <% end %>
