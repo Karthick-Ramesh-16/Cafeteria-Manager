@@ -1,6 +1,6 @@
 <section class="UsersNew">
-	<h1 class="NewUser-title">Welcome new user</h1>
-	<%= form_with(url: users_path) do |form| %>
+	<h1 class="NewUser-title">Sign Up</h1>
+	<%= form_with(url: users_path, class: "NewUser-form") do |form| %>
 		<div class="Form-section">
 			<p class="FormInput-label">First Name: </p>
 			<%= form.text_field :first_name, class: "Form-input", autofocus: true %>

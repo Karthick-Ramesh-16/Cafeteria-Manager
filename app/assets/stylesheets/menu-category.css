@@ -116,6 +116,19 @@
   color: #111;
 }
 
+.NewItem-title,
+.EditItem-title {
+  font-size: 30px;
+  position: relative;
+  top: 20px;
+}
+
+.NewMenuItem {
+  position: relative;
+  top: 30px;
+  left: 15px;
+}
+
 .MenuItem-container {
   font-size: 22px;
   padding: 14px;
