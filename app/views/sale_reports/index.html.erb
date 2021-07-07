@@ -1,0 +1,11 @@
+<h1 style="margin-top:60px;font-size:30px;">Sale Reports</h1>
+
+<section style="margin-top:20px;">
+    <%= form_with(url: show_reports_path, method: "GET") do |form| %>
+        <%= form.date_field(:from_date, required: true, class: "Form-date") %>
+        <%= form.date_field(:to_date, required: true, class: "Form-date") %>
+        <%= form.submit("View", class: "Form-submit") %>
+    <% end %>
+</section>
+
+<%= render partial: "report-table", locals: { orders: @orders } %>

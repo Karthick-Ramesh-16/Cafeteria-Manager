@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "/create_menu_item", to: "menu_items#create", as: :create_menu_item
   get "/get_menu_item", to: "menu_items#get_menu_item", as: :get_menu_item
 
+  get "show_reports", to: "sale_reports#index", as: :show_reports
+
   get "/order_items", to: "order_items#index"
   get "/create_order_item", to: "order_items#create", as: :create_order_item
 
