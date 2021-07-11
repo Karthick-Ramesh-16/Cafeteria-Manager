@@ -15,7 +15,6 @@
       <div class="NavigationBar">
         <%= link_to "Home", menu_categories_path, class: "NavigationBar-home" %>
         <%= link_to "Orders", orders_path, class: "NavigationBar-order" %>
-
         <% if @current_user.role == "Owner" %>
           <%= link_to "Sale Reports", show_reports_path, class: "NavigationBar-order" %>
           <%= link_to "Users", users_path, class: "NavigationBar-order" %>
