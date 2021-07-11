@@ -11,12 +11,6 @@
   font-size: 30px;
 }
 
-.MenuItem-HeadText {
-  margin: 0;
-  padding: 0;
-  /* z-index: -1; */
-}
-
 .CartItem-HeadText span {
   font-size: 20px;
 }
