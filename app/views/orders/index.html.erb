@@ -1,0 +1,29 @@
+<h1 class="Order-head">
+    <%= @current_user.role == "Owner" ? "All" : "Your" %> Orders
+</h1>
+
+<section>
+    <table>
+        <tr class="Order-title">
+            <th class="Order-number">S. No.</th>
+            <th>Invoice ID</th>
+            <th>Ordered At</th>
+            <th>Delivered At</th>
+            <% if @current_user.role != "Customer" %>
+                <th></th>
+            <% end %>
+        </tr>
+
+        <% @orders.each_with_index do |order, index| %>
+            <tr class="Order-data">
+                <td class="Order-number"><%= index + 1 %></td>
+                <td><%= link_to order.id, order_items_path(order_id: order.id), method: "GET", class: "InvoiceID" %></td>
+                <td><%= order.ordered_at.to_s(:long) %></td>
+                <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending delivery" %></td>
+                <% if @current_user.role != "Customer" and not order.delivered_at %>
+                    <td><%= link_to "Set delivered", order_path(id: order.id), method: "PATCH" %></td>
+                <% end %>
+            </tr>
+        <% end %>
+    </table>
+</section>

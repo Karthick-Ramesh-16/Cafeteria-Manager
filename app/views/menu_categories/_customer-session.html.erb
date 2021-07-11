@@ -1,0 +1,101 @@
+<article>
+    <aside class="CartItemsPart">
+        <div class="CartItem-head">
+            <h1 class="CartItem-HeadText">
+                Cart <span>₹<%= CartItem.total_amount(@current_user.id) %></span>
+            </h1>
+            <div class="CartItem-button">
+                <%= link_to "Clear cart", clear_cart_path, method: "DELETE", class: "CartClear-button" %>
+                <button <%= @cart_items.empty? ? nil : "id=myBtn" %> class="Checkout-button">Checkout</button>
+            </div>
+        </div>
+
+        <div class="CartItem-body">
+            <% if @cart_items.present? %>
+                <% @cart_items.each do |cart| %>
+                    <% item = MenuItem.find(cart.menu_item_id) %>
+                    <div class="CartItem-container">
+                        <p class="CartItem-name"><%= item.name %></p>
+
+                        <p class="CartItem-price">₹<%= item.price * cart.quantity %></p>
+
+                        <div class="CartItem-quantity">
+                            <%= link_to "-", change_quantity_path(id: cart.id, quantity: -1),
+                                        method: "PUT", class: "ReduceQuantity-button" %>
+
+                            <span class="Quantity-number"><%= cart.quantity %></span>
+                            
+                            <%= link_to "+", change_quantity_path(id: cart.id, quantity: 1),
+                                        method: "PUT", class: "AddQuantity-button" %>
+                        </div>
+                    </div>
+                <% end %>
+            <% else %>
+                <h3 class="CartEmpty-text">Your Cart is empty</h3>
+            <% end %>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Select Address</h2>
+                </div>
+                <div class="modal-body">
+                    <%= form_with(url: orders_path(total_amount: CartItem.total_amount(@current_user.id)),
+                                  method: "POST", class: "Checkout", style: "margin-bottom: 10px") do %>
+                        <select name="destination" style="width:100%;">
+                            <% @current_user.destinations.each do |address| %>
+                                <option value='<%= address.destination %>'>
+                                    <%= address.destination %>
+                                </option>
+                            <% end %>
+                            <option value="new_address">New Address</option>
+                        </select>
+                        <br><br><p style="text-align: center;">( or )</p><br>
+                        <%= text_area_tag(:new_address, nil, size: "45x5") %>
+                        <%= submit_tag("Place Order", class: "PlaceOrder") %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="MenuItemsPart" id="MenuItemsPart">
+        <h1 class="MenuItem-HeadText">Menu Items</h1>
+        <ul class="MenuItem-list">
+            <% @menu_items.each do |item| %>
+                <li><img src="/assets/plate-spoon-fork.png" width="80px">
+                    <div class="MenuItem-container">
+                        <span class="MenuItem-title"><%= item.name %></span>
+                        <span class="MenuItem-price">₹<%= item.price %></span>
+                        <% if item.availability %>
+                            <%= link_to("Add +", "/cart_items?menu_item_id=#{item.id}",
+                                        method: "POST", class: "AddCart-button") %>
+                        <% else %>
+                            <span style="float:right;color:red;">Currently Unavailable</span>
+                        <% end %>
+                        <br><hr>
+                        <p class="MenuItem-description"><%= item.description %>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+    <div>
+</article>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        document.getElementById("MenuItemsPart").style.zIndex = "-1"
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        document.getElementById("MenuItemsPart").style.zIndex = "1"
+        modal.style.display = "none";
+    }
+</script>

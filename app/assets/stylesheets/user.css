@@ -1,0 +1,51 @@
+.UsersNew {
+  position: relative;
+  left: 30%;
+  padding: 20px 40px;
+}
+
+.SignUp:visited {
+  color: blue;
+}
+
+.NewUser-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.NewUser-form {
+  margin-left: 15px;
+}
+
+.Form-section {
+  margin-bottom: 30px;
+}
+
+.FormInput-label {
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.Form-input {
+  font-size: 20px;
+  padding: 8px;
+}
+
+.Form-input-price {
+  padding: 4px;
+}
+
+.Form-input-description {
+  font-size: 16px;
+  padding: 8px;
+}
+
+.Form-submit {
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  background-color: #fcc603;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 6px 20px;
+}

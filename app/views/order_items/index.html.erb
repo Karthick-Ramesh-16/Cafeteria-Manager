@@ -1,0 +1,29 @@
+<section>
+    <h1 style="font-size: 30px;">Order Items</h1>
+    <table>
+        <tr class="Order-title">
+            <th>S. No.</th>
+            <th>Item</th>
+            <th>quantity</th>
+            <th>Total cost</th>
+        </tr>
+
+        <% @order_items.each_with_index do |item, index| %>
+            <tr class="Order-data">
+                <td><%= index + 1 %></td>
+                <td><%= item.menu_item_name %></td>
+                <td><%= item.quantity %></td>
+                <td>₹<%= item.quantity * item.menu_item_price %></td>
+            </tr>
+        <% end %>
+    </table>
+
+    <div class="Order-total">
+        <p>Total: ₹<%= @order_items.first.total_amount %></p>
+    </div>
+
+    <div class="Order-address">
+        <h3>Delivered to:</h3>
+        <p><%= @order_items.first.destination %></p>
+    </div>
+</section>

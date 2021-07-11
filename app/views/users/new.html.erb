@@ -1,0 +1,39 @@
+<section class="UsersNew">
+	<h1 class="NewUser-title">
+		<%= (@current_user and @current_user.role == "Owner") ? "Add New User" : "Sign Up" %>
+	</h1>
+
+	<%= form_with(url: users_path, class: "NewUser-form") do |form| %>
+		<div class="Form-section">
+			<p class="FormInput-label">First Name: </p>
+			<%= form.text_field :first_name, class: "Form-input", autofocus: true %>
+		</div>
+
+		<div class="Form-section">
+			<p class="FormInput-label">Last Name: </p>
+			<%= form.text_field :last_name, class: "Form-input" %>
+		</div>
+
+		<% if @current_user and @current_user.role == "Owner" %>
+			<div class="Form-section">
+				<label for="role" class="FormInput-label">Role: </label>
+				<select name="role" style="width:20%;padding:2px;">
+                    <option value="Billing Clerk">Billing Clerk</option>
+                    <option value="Owner">Owner</option>
+                </select>
+			</div>
+		<% end %>
+
+		<div class="Form-section">
+			<p class="FormInput-label">Email: </p>
+			<%= form.email_field :email, class: "Form-input" %>
+		</div>
+
+		<div class="Form-section">
+			<p class="FormInput-label">Password: </p>
+			<%= form.password_field :password, class: "Form-input" %>
+		</div>
+
+		<%= form.submit "Sign Up", class: "Form-submit" %>
+	<% end %>
+</section>

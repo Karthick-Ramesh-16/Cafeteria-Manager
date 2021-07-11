@@ -1,0 +1,77 @@
+main {
+  font-family: sans-serif;
+  max-width: 1200px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NavigationBar {
+  z-index: 50;
+  overflow: hidden;
+  background-color: #333;
+  /* position: fixed; */
+  /* top: 0; */
+  width: 100%;
+}
+
+.NavigationBar-home,
+.NavigationBar-order,
+.NavigationBar-signout,
+.NavigationBar-profile {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.NavigationBar-order:hover,
+.NavigationBar-signout:hover {
+  background-color: #111;
+}
+
+.NavigationBar-home {
+  background-color: #fcc603;
+}
+
+.NavigationBar-search {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.SearchBar-field,
+.SearchBar-button {
+  padding: 4px;
+  border: 2px solid transparent;
+  border-radius: 2px;
+}
+
+.SearchBar-button {
+  color: #ccc;
+  border: 2px solid #aaa;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.NavigationBar-signout,
+.NavigationBar-profile {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.Flash-error {
+  text-align: center;
+  color: darkred;
+  background-color: #f8d7da;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 12px 0;
+  /* margin-top: 44px; */
+}

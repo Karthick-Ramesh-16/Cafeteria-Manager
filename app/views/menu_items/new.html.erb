@@ -1,0 +1,30 @@
+<h1 class="NewItem-title">Create new menu item</h1>
+
+<section class="NewMenuItem">
+	<%= form_with(url: menu_categories_path, method: "POST") do |form| %>
+		<div class="Form-section">
+			<p class="FormInput-label">Item Name: </p>
+			<%= form.text_field :name, class: "Form-input", autofocus: true %>
+		</div>
+
+		<div class="Form-section">
+			<p class="FormInput-label">Category: </p>
+			<%= form.text_field :category, class: "Form-input" %>
+		</div>
+
+        <div class="Form-section">
+			<p class="FormInput-label">
+                Price: ₹<%= form.text_field :price, class: "Form-input-price" %>
+            </p>
+		</div>
+
+		<div class="Form-section">
+			<p class="FormInput-label">Description: </p>
+			<%= form.text_area :description, size: "50x5", class: "Form-input-description" %>
+		</div>
+
+		<div class="Form-section">
+			<%= form.submit "Create", class: "Form-submit" %>
+		</div>
+	<% end %>
+</section>

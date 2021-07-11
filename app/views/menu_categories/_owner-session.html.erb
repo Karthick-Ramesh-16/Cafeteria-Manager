@@ -1,0 +1,25 @@
+<article>
+    <aside class="Owner-MenuItemsPart">
+        <h1 class="MenuItem-HeadText">Menu Items</h1>            
+        <ul class="MenuItem-list">
+            <% @menu_items.each do |item| %>
+                <li><img src="/assets/plate-spoon-fork.png" width="80px">
+                    <div class="Owner-MenuItem-container">
+                        <span class="MenuItem-title"><%= item.name %></span>
+                        <span class="MenuItem-price">₹<%= item.price %></span>
+                        <div class="ItemButton-container">
+                            <%= link_to "Edit", get_menu_item_path(id: item.id), class: "EditItem-button" %>
+                            <%= link_to "Set #{item.availability ? "un" : nil}available",
+                                        menu_item_path(id: item.id),
+                                        method: "PATCH", class: "UpdateItem-button" %>
+                            <%= link_to "Remove", menu_item_path(id: item.id),
+                                        method: "DELETE", class: "RemoveItem-button" %>
+                        </div>
+                        <br><hr>
+                        <p class="MenuItem-description"><%= item.description %>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+    <aside>
+</article>

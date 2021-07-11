@@ -1,0 +1,31 @@
+<h1 class="EditItem-title">Edit menu item</h1>
+
+<section class="NewMenuItem">
+	<%= form_with(url: edit_menu_item_path(id: @item.id), method: "GET") do |form| %>
+		<div class="Form-section">
+			<p class="FormInput-label">Item Name: </p>
+			<%= form.text_field :name, value: @item.name, class: "Form-input", autofocus: true %>
+		</div>
+
+		<div class="Form-section">
+			<p class="FormInput-label">Category: </p>
+			<%= form.text_field :category, value: MenuCategory.find(@item.menu_category_id).name,
+                                  class: "Form-input" %>
+		</div>
+
+        <div class="Form-section">
+			<p class="FormInput-label">
+                Price: ₹<%= form.text_field :price, value: @item.price, class: "Form-input-price" %>
+            </p>
+		</div>
+
+		<div class="Form-section">
+			<p class="FormInput-label">Description: </p>
+			<%= form.text_area :description, value: @item.description, size: "50x5", class: "Form-input-description" %>
+		</div>
+
+		<div class="Form-section">
+			<%= form.submit "Save", class: "Form-submit" %>
+		</div>
+	<% end %>
+</section>

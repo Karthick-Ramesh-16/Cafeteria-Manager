@@ -1,0 +1,38 @@
+<section style="margin-top:20px;">
+    <% total_amount = orders.sum(:total_amount) %>
+
+    <table>
+        <tr class="Order-title">
+            <th>Incomes</th>
+            <th>Expenses</th>
+            <th>Profits</th>
+            <th>Loss</th>
+        </tr>
+        <tr  class="Order-data">
+            <td><%= total_amount %></td>
+            <td><%= (total_amount * 50) / 100 %></td>
+            <td><%= (total_amount * 30) / 100 %></td>
+            <td><%= (total_amount * 20) / 100 %></td>
+        </tr>
+    </table>
+
+    <table style="margin-top:30px;">
+        <tr class="Order-title">
+            <th>S. No.</th>
+            <th>Invoice ID</th>
+            <th>Customer Name</th>
+            <th>Ordered At</th>
+            <th>Delivered At</th>
+        </tr>
+
+        <% orders.each_with_index do |order, index| %>
+            <tr class="Order-data">
+                <td><%= index + 1 %></td>
+                <td><%= link_to order.id, order_items_path(order_id: order.id), method: "GET", class: "InvoiceID" %></td>
+                <td><%= User.full_name(order.user_id) %></td>
+                <td><%= order.ordered_at.to_s(:long) %></td>
+                <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending delivery" %></td>
+            </tr>
+        <% end %>
+    </table>
+</section>

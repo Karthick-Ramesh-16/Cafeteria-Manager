@@ -1,0 +1,172 @@
+.MenuCategoryPart {
+  position: fixed;
+}
+
+.Owner-MenuItemsPart {
+  width: 83%;
+  position: relative;
+  left: 200px;
+}
+
+.MenuItemsPart {
+  width: 650px;
+  position: relative;
+  left: 170px;
+}
+
+.CartItemsPart {
+  position: fixed;
+  left: 69%;
+  width: 30%;
+}
+
+.MenuCategory {
+  width: 15%;
+  border: 1px solid black;
+}
+
+.Owner-MenuCategory-button {
+  float: right;
+  position: relative;
+  top: 8px;
+  z-index: 1;
+}
+
+.UpdateCategory-button,
+.AddItem-button,
+.AddCart-button {
+  color: #48bb78;
+  border: 2px solid #48bb78;
+}
+
+.AddCart-button {
+  float: right;
+  position: relative;
+  bottom: 7px;
+}
+
+.UpdateItem-button {
+  color: #1a73e8;
+  border: 2px solid #1a73e8;
+}
+
+.RemoveItem-button {
+  color: #eb465a;
+  border: 2px solid #eb465a;
+}
+
+.EditItem-button {
+  color: #555;
+  border: 2px solid #555;
+}
+
+.UpdateCategory-button,
+.AddItem-button,
+.AddCart-button,
+.EditItem-button,
+.UpdateItem-button,
+.RemoveItem-button {
+  text-decoration: none;
+  font-size: 16px;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 6px 22px;
+  cursor: pointer;
+}
+
+.ItemButton-container {
+  position: relative;
+  bottom: 6px;
+  width: 38%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.MenuCategory-container {
+  display: flex;
+  border: 2px solid darkgrey;
+  border-radius: 4px;
+}
+
+.MenuCategory-button {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #fcc603;
+  background-color: white;
+  border: 1px solid transparent;
+}
+
+.MenuCategory-list {
+  font-size: 22px;
+  height: 200px;
+}
+
+.MenuCategory-list li {
+  padding: 10px;
+}
+
+.NewMenuItem {
+  position: relative;
+  top: 10px;
+  left: 15px;
+}
+
+.MenuItem-list {
+  height: 470px;
+  position: relative;
+  left: 20px;
+  top: 10px;
+}
+
+.MenuItem-list li {
+  width: 98%;
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid #111;
+  background-color: #eee;
+  box-shadow: 2px 2px #111;
+}
+
+.Owner-MenuItem-container {
+  width: 100%;
+  font-size: 22px;
+  padding: 14px;
+}
+
+.MenuItem-container {
+  width: 522px;
+  font-size: 22px;
+  padding: 14px;
+}
+
+.MenuItem-description {
+  font-size: 16px;
+  text-align: justify;
+}
+
+.MenuItem-price,
+.MenuItem-quantity {
+  margin-left: 8px;
+}
+
+.ItemButton-container {
+  float: right;
+  width: 360px;
+}
+
+.AddQuantity-button,
+.ReduceQuantity-button {
+  text-decoration: none;
+  padding: 0 4px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.AddQuantity-button {
+  color: #48bb78;
+}
+
+.ReduceQuantity-button {
+  color: #eb465a;
+}
