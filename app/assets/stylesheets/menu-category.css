@@ -170,3 +170,7 @@
 .ReduceQuantity-button {
   color: #eb465a;
 }
+
+.AlignMiddle {
+  align-self: center;
+}

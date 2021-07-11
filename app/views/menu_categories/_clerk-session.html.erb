@@ -43,7 +43,7 @@
         <h1 class="MenuItem-HeadText">Menu Items</h1>
         <ul class="MenuItem-list">
             <% @menu_items.each do |item| %>
-                <li><img src="/assets/plate-spoon-fork.png" width="80px">
+                <li><%= image_tag "plate-spoon-fork.png", size: "80", class: "AlignMiddle" %>
                     <div class="MenuItem-container">
                         <span class="MenuItem-title"><%= item.name %></span>
                         <span class="MenuItem-price">₹<%= item.price %></span>
