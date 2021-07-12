@@ -1,7 +1,7 @@
 <div class="MenuCategoryPart">
     <h1 class="MenuCategory-HeadText">Category</h1>
     <ul class="MenuCategory-list">
-        <% MenuCategory.all.each do |category| %>
+        <% MenuCategory.all.order(:name).each do |category| %>
             <% if (@current_user.role == "Owner" or category.status) %>
                 <li><%= link_to category.name, menu_categories_path(menu_category_id: category.id),
                                 style: "color:#{category.id == @menu_items.first.menu_category_id ? "#fcc603" : "#111"}" %>

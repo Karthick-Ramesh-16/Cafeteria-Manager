@@ -3,17 +3,24 @@ class MenuCategoriesController < ApplicationController
     @cart_items = @current_user.cart_items
     category_id = params[:menu_category_id]
     search = params[:search_item]
+
     if category_id.present?
       @menu_items = MenuCategory.find(category_id).menu_items
     elsif search.present?
       @menu_items = MenuItem.where("name LIKE ?", "%#{search}%")
+
       unless @menu_items.present?
         flash[:error] = "Sorry! we could not find any item :("
-        @menu_items = MenuCategory.first.menu_items
+        MenuCategory.all.each do |category|
+          @menu_items = category.menu_items if category.status
+        end
       end
     else
-      @menu_items = MenuCategory.first.menu_items
+      MenuCategory.all.each do |category|
+        @menu_items = category.menu_items if category.status
+      end
     end
+
     render "index"
   end
 
