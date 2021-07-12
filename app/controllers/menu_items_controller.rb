@@ -18,7 +18,7 @@ class MenuItemsController < ApplicationController
     item = MenuItem.find(params[:id])
     item.availability = !item.availability
     item.save!
-    redirect_to menu_categories_path
+    redirect_back(fallback_location: "/")
   end
 
   def get_menu_item

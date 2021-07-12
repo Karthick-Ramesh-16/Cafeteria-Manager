@@ -20,9 +20,9 @@
                   method: "PUT", class: "UpdateCategory-button" %>
     </div>
 
-    <%= render partial: "owner-session" %>
+    <%= render partial: "owner-session", locals: { menu_items: @menu_items.order(:name) } %>
 <% elsif @current_user.role == "Billing Clerk" %>
-    <%= render partial: "clerk-session" %>
+    <%= render partial: "clerk-session", locals: { menu_items: @menu_items.order(:name) } %>
 <% else %>
-    <%= render partial: "customer-session" %>
+    <%= render partial: "customer-session", locals: { menu_items: @menu_items.order(:name) } %>
 <% end %>
