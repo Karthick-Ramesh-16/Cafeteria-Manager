@@ -1,4 +1,5 @@
 .UsersNew {
+  width: 65%;
   position: relative;
   left: 30%;
   padding: 20px 40px;
@@ -11,10 +12,6 @@
 .NewUser-title {
   font-size: 30px;
   margin-bottom: 20px;
-}
-
-.NewUser-form {
-  margin-left: 15px;
 }
 
 .Form-section {

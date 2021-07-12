@@ -9,20 +9,29 @@
             <th>Invoice ID</th>
             <th>Ordered At</th>
             <th>Delivered At</th>
-            <% if @current_user.role != "Customer" %>
-                <th></th>
-            <% end %>
+            <th>Status</th>
         </tr>
 
         <% @orders.each_with_index do |order, index| %>
             <tr class="Order-data">
                 <td class="Order-number"><%= index + 1 %></td>
-                <td><%= link_to order.id, order_items_path(order_id: order.id), method: "GET", class: "InvoiceID" %></td>
+                <td>
+                    <%= link_to order.id, order_items_path(order_id: order.id),
+                                method: "GET", class: "InvoiceID" %>
+                </td>
                 <td><%= order.ordered_at.to_s(:long) %></td>
-                <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "pending delivery" %></td>
-                <% if @current_user.role != "Customer" and not order.delivered_at %>
-                    <td><%= link_to "Set delivered", order_path(id: order.id), method: "PATCH" %></td>
-                <% end %>
+                <td><%= order.delivered_at ? order.delivered_at.to_s(:long) : "-" %></td>
+                <td>
+                    <% unless order.delivered_at %>
+                        <% if @current_user.role != "Customer" %>
+                            <%= link_to "Set delivered", order_path(id: order.id), method: "PATCH" %>
+                        <% else %>
+                            pending
+                        <% end %>
+                    <% else %>
+                        Delivered
+                    <% end %>
+                </td>
             </tr>
         <% end %>
     </table>

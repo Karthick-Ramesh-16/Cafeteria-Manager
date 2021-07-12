@@ -4,17 +4,17 @@
 	<%= form_with(url: menu_categories_path, method: "POST") do |form| %>
 		<div class="Form-section">
 			<p class="FormInput-label">Item Name: </p>
-			<%= form.text_field :name, class: "Form-input", autofocus: true %>
+			<%= form.text_field :name, class: "Form-input", autofocus: true, required: true %>
 		</div>
 
 		<div class="Form-section">
 			<p class="FormInput-label">Category: </p>
-			<%= form.text_field :category, class: "Form-input" %>
+			<%= form.text_field :category, class: "Form-input", required: true %>
 		</div>
 
         <div class="Form-section">
 			<p class="FormInput-label">
-                Price: ₹<%= form.text_field :price, class: "Form-input-price" %>
+                Price: ₹<%= form.text_field :price, class: "Form-input-price", required: true %>
             </p>
 		</div>
 
