@@ -37,6 +37,10 @@
       <p class="Flash-error"><%= flash[:error] %></p>
     <% end %>
 
+    <% if flash[:success] %>
+      <p class="Flash-success"><%= flash[:success] %></p>
+    <% end %>
+
     <% if @current_user.present? %>
       <main><%= yield %></main>
     <% else %>

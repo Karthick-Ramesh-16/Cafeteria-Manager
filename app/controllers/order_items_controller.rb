@@ -5,17 +5,29 @@ class OrderItemsController < ApplicationController
   end
 
   def create
+    created = true
     @current_user.cart_items.each do |item|
-      OrderItem.create!(
+      item = OrderItem.new(
         order_id: Order.last.id,
         menu_item_id: item.menu_item_id,
         menu_item_name: MenuItem.find(item.menu_item_id).name,
         menu_item_price: MenuItem.find(item.menu_item_id).price,
         quantity: item.quantity,
       )
-    end
-    @current_user.cart_items.destroy_all
 
-    redirect_to orders_path
+      unless item.save
+        created = false
+        break
+      end
+    end
+
+    if created
+      @current_user.cart_items.destroy_all
+      flash[:success] = "Your order is placed :) check your orders!"
+    else
+      flash[:error] = "Sorry! something went wrong :("
+    end
+
+    redirect_to menu_categories_path
   end
 end

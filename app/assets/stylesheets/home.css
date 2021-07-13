@@ -66,13 +66,22 @@ main {
   padding: 14px 16px;
 }
 
-.Flash-error {
+.Flash-error,
+.Flash-success {
   position: relative;
   top: 45px;
   text-align: center;
-  color: darkred;
-  background-color: #f8d7da;
   border: 1px solid transparent;
   border-radius: 4px;
   padding: 12px 0;
+}
+
+.Flash-error {
+  color: darkred;
+  background-color: #f8d7da;
+}
+
+.Flash-success {
+  color: darkgreen;
+  background-color: #d7f8da;
 }
