@@ -3,21 +3,32 @@ class MenuItemsController < ApplicationController
   end
 
   def create
-    MenuItem.create!(
+    name = params[:name]
+    item = MenuItem.new(
       menu_category_id: params[:menu_category_id],
-      name: params[:name],
+      name: name,
       description: params[:description],
       price: params[:price].to_f,
       availability: true,
     )
 
+    if item.save
+      flash[:success] = "Added a new menu item"
+    else
+      flash[:error] = item.errors.full_messages.join(", ")
+    end
     redirect_to menu_categories_path
   end
 
   def update
     item = MenuItem.find(params[:id])
     item.availability = !item.availability
-    item.save!
+
+    if item.save
+      flash[:success] = "#{item.name} is now #{item.availability ? nil : "un"}available"
+    else
+      flash[:error] = item.errors.full_messages.join(", ")
+    end
     redirect_back(fallback_location: "/")
   end
 
@@ -34,12 +45,18 @@ class MenuItemsController < ApplicationController
     item.description = params[:description]
     item.price = params[:price].to_f
 
-    item.save!
+    if item.save
+      flash[:success] = "Successfully changes were saved"
+    else
+      flash[:error] = item.errors.full_messages.join(", ")
+    end
     redirect_to menu_categories_path
   end
 
   def destroy
-    MenuItem.find(params[:id]).destroy
+    item = MenuItem.find(params[:id])
+    flash[:success] = "#{item.name} is removed"
+    item.destroy
     redirect_to menu_categories_path
   end
 end

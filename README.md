@@ -33,7 +33,7 @@ The customer can view ordered items by clicking the invoice ID.
 In this page, the customer is able to see items that ordered by himself and Total amount.
 ![Customer Order Items](./app/assets/images/screenshots/Customer/customer-order-items.png)
 
-The New Address should be stored.
+The new address is automatically stored.
 ![Store New Address](./app/assets/images/screenshots/Customer/new-address-stored.png)
 
 Then the customer can choose that address in next order or even he can create another one.
@@ -48,7 +48,7 @@ Clerk should order items for Walk-In Customer.
 ![Cart Items](./app/assets/images/screenshots/Billing-Clerk/cart-items.png)
 
 The Clerk can set customers orders as delivered by clicking "Set Delivered".
-![Set Order Delivered](./app/assets/images/screenshots/Billing-Clerk/set-delivered.png)
+![Set Order Delivered](./app/assets/images/screenshots/Billing-Clerk/clerk-set-delivered.png)
 ![Order Delivered](./app/assets/images/screenshots/Billing-Clerk/order-delivered.png)
 
 ## Owner
@@ -73,7 +73,7 @@ The owner can see all users details.
 ![All Users](./app/assets/images/screenshots/Owner/all-users.png)
 
 The owner can see all customers orders and set as delivered.
-![All Orders](./app/assets/images/screenshots/Billing-Clerk/order-delivered.png)
+![All Orders](./app/assets/images/screenshots/Owner/owner-set-delivered.png)
 
 The owne can see all Sale Reports.
 ![All Sale Reports](./app/assets/images/screenshots/Owner/all-sale-reports.png)

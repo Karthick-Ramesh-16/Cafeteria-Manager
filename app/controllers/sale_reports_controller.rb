@@ -6,9 +6,9 @@ class SaleReportsController < ApplicationController
           "ordered_at between ? and ?",
           params[:from_date],
           DateTime.parse(params[:to_date]) + 1
-        )
+        ).order(:id)
       else
-        @orders = Order.all
+        @orders = Order.order(:id)
       end
       render "index"
     else

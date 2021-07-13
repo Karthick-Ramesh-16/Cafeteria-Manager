@@ -42,9 +42,13 @@ class MenuCategoriesController < ApplicationController
   end
 
   def update
-    item = MenuCategory.find(params[:id])
-    item.status = !item.status
-    item.save!
+    category = MenuCategory.find(params[:id])
+    category.status = !category.status
+    if category.save
+      flash[:success] = "#{category.name} is now #{category.status ? "opened" : "closed"}"
+    else
+      flash[:error] = category.errors.full_messages.join(", ")
+    end
     redirect_back(fallback_location: "/")
   end
 end
