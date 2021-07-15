@@ -1,6 +1,17 @@
 <section>
     <h1 style="font-size:30px;margin-bottom:10px;">All Users</h1>
 
+    <%= form_with(url: users_path, method: "GET") do %>
+        <select name="user" style="width:12%;padding:8px;">
+            <option value="All Users">All Users</option>
+            <option value="Customers">Customers</option>
+            <option value="Clerks">Billing Clerks</option>
+            <option value="Owners">Owners</option>
+        </select>
+        <%= submit_tag "Filter", class: "Form-submit" %>
+    <% end %>
+    <br><br>
+
     <table class="Users-table">
         <tr class="Order-title">
             <th>S. No.</th>
@@ -8,7 +19,8 @@
             <th>Email</th>
             <th>Role</th>
         </tr>
-        <% User.all.each_with_index do |user, index| %>
+
+        <% @users.each_with_index do |user, index| %>
             <tr class="Order-data">
                 <td><%= index + 1 %></td>
                 <td><%= "#{user.first_name} #{user.last_name}" %></td>

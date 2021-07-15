@@ -38,5 +38,7 @@
 			<%= form.submit "Sign Up", class: "Form-submit" %>
 		</div>
 	<% end %>
-	<%= link_to "Already have an account", new_sessions_path, class: "SignUp" %>
+	<% if @current_user.nil? %>
+		<%= link_to "Already have an account", new_sessions_path, class: "SignUp" %>  
+	<% end %>
 </section>

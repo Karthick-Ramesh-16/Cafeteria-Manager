@@ -8,6 +8,17 @@ class UsersController < ApplicationController
 
   def index
     if @current_user.role == "Owner"
+      case params[:user]
+      when "Customers"
+        @users = User.where(role: "Customer")
+      when "Clerks"
+        @users = User.where(role: "Billing Clerk")
+      when "Owners"
+        @users = User.where(role: "Owner")
+      else
+        @users = User.all
+      end
+
       render "index"
     else
       render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
@@ -17,8 +28,8 @@ class UsersController < ApplicationController
   def create
     role = params[:role]
     new_user = User.new(
-      first_name: params[:first_name],
-      last_name: params[:last_name],
+      first_name: params[:first_name].capitalize,
+      last_name: params[:last_name].capitalize,
       email: params[:email],
       password: params[:password],
       role: role.present? ? role : "Customer",
